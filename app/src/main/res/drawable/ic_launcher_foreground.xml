@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Sun circle (top-right) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,36m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+
+    <!-- Sun rays -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M66,20V16 M66,56V52 M50,36H46 M86,36H82 M54.7,24.7L51.9,21.9 M77.3,47.3L80.1,50.1 M54.7,47.3L51.9,50.1 M77.3,24.7L80.1,21.9" />
+
+    <!-- Calendar body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9"
+        android:pathData="M28,52 L28,82 Q28,86 32,86 L62,86 Q66,86 66,82 L66,52 Z" />
+
+    <!-- Calendar header bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,48 Q28,44 32,44 L62,44 Q66,44 66,48 L66,54 L28,54 Z" />
+
+    <!-- Calendar binding dots -->
+    <path
+        android:fillColor="#4FC3F7"
+        android:pathData="M38,42 A2,2 0,1 1,42,42 A2,2 0,1 1,38,42 Z M52,42 A2,2 0,1 1,56,42 A2,2 0,1 1,52,42 Z" />
+
+    <!-- Calendar grid lines -->
+    <path
+        android:strokeColor="#4FC3F7"
+        android:strokeWidth="1.5"
+        android:pathData="M34,62 H60 M34,70 H60 M34,78 H54 M42,56 V82 M52,56 V82" />
+</vector>

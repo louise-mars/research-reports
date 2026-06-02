@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Gradle wrapper
+gradlew text eol=lf
+gradlew.bat text eol=crlf
+
+# Kotlin
+*.kt text diff=kotlin
+*.kts text diff=kotlin

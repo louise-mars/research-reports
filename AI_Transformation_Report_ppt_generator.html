@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI转型成功案例 | 2024–2026</title>
+  <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans SC', 'Inter', sans-serif; background: #000; color: #fff; overflow: hidden; }
+    .slides-container { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background: #0a0a0a; }
+    .slide { width: 100%; height: 100%; max-width: 450px; max-height: 800px; aspect-ratio: 9/16; position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; opacity: 0; transform: translateX(100%); transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%); }
+    .slide.active { opacity: 1; transform: translateX(0); }
+    .slide.prev { opacity: 0; transform: translateX(-100%); }
+    .light-spot { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.25; pointer-events: none; }
+    .light-spot-1 { width: 300px; height: 300px; background: #3b82f6; top: -100px; right: -100px; animation: float1 20s ease-in-out infinite; }
+    .light-spot-2 { width: 250px; height: 250px; background: #8b5cf6; bottom: -80px; left: -80px; animation: float2 25s ease-in-out infinite; }
+    .light-spot-3 { width: 200px; height: 200px; background: #06b6d4; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: float3 18s ease-in-out infinite; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-50px, 30px); } 50% { transform: translate(30px, 50px); } 75% { transform: translate(50px, -20px); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 33% { transform: translate(40px, -40px); } 66% { transform: translate(-30px, 30px); } }
+    @keyframes float3 { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.2); } }
+    .slide-content { position: relative; z-index: 10; text-align: center; width: 100%; }
+    .progress-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 100; }
+    .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; }
+    .progress-dot.active { background: #fff; transform: scale(1.3); }
+    .progress-dot:hover { background: rgba(255,255,255,0.6); }
+    .page-number { position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); font-size: 0.875rem; color: rgba(255,255,255,0.4); z-index: 100; }
+    .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .tag-blue { background: rgba(59,130,246,0.2); color: #60a5fa; border: 1px solid rgba(59,130,246,0.4); }
+    .tag-purple { background: rgba(139,92,246,0.2); color: #a78bfa; border: 1px solid rgba(139,92,246,0.4); }
+    .tag-green { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+    .tag-red { background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+    .tag-cyan { background: rgba(6,182,212,0.2); color: #22d3ee; border: 1px solid rgba(6,182,212,0.4); }
+    .divider { width: 40px; height: 3px; background: rgba(255,255,255,0.3); margin: 1.5rem auto; border-radius: 2px; }
+    .quote-mark { font-size: 5rem; line-height: 1; color: rgba(255,255,255,0.08); font-family: Georgia, serif; }
+    .stat-big { font-size: 3.5rem; font-weight: 900; line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.25rem; margin-bottom: 0.75rem; text-align: left; }
+    .card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .card-sub { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .card-metric { font-size: 1.8rem; font-weight: 900; }
+    .comparison-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .comparison-row:last-child { border-bottom: none; }
+    .comparison-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .comparison-val { font-weight: 700; font-size: 0.9rem; }
+    .comparison-val.highlight { color: #34d399; }
+    .timeline-item { display: flex; gap: 1rem; text-align: left; margin-bottom: 1.25rem; }
+    .timeline-q { font-size: 0.7rem; font-weight: 900; color: #60a5fa; background: rgba(59,130,246,0.15); padding: 0.2rem 0.5rem; border-radius: 0.25rem; white-space: nowrap; }
+    .timeline-text { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .action-item { display: flex; gap: 0.75rem; text-align: left; margin-bottom: 1rem; }
+    .action-num { font-size: 1.5rem; font-weight: 900; color: rgba(255,255,255,0.15); line-height: 1; }
+    .action-text { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  </style>
+</head>
+<body>
+<div class="slides-container">
+
+  <!-- Slide 1: Cover -->
+  <div class="slide active">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-2"></div>
+    <div class="slide-content">
+      <span class="tag tag-blue">研究报告 2024–2026</span>
+      <h1 class="text-4xl font-black leading-tight mb-4">AI转型<br>成功案例</h1>
+      <p class="text-base font-light text-gray-400 mb-2">电信 · 制造业 · 金融服务</p>
+      <div class="divider"></div>
+      <p class="text-xs text-gray-600">基于Siemens Energy · Mastercard · NVIDIA-Marvell</p>
+    </div>
+  </div>
+
+  <!-- Slide 2: Core Thesis -->
+  <div class="slide">
+    <div class="light-spot light-spot-2"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-purple">核心发现</span>
+      <div class="quote-mark mt-4 mb-2">"</div>
+      <p class="text-2xl font-bold leading-snug mb-4">成败不取决于<br>技术选型</p>
+      <p class="text-base text-gray-400 leading-relaxed">而在于组织是否完成<br><span class="text-white font-bold">从工具采用 → 能力重塑</span><br>的跨越</p>
+      <div class="divider"></div>
+      <p class="text-xs text-gray-500">最佳ROI来自"AI筛选 + 人类专家判断"<br>人机协同模式</p>
+    </div>
+  </div>
+
+  <!-- Slide 3: The Stakes -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-red">2026年现状</span>
+      <h2 class="text-3xl font-black leading-tight mb-6 mt-4">不转型<br>代价是什么？</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.5rem;">
+        <div class="card" style="text-align:center;">
+          <div class="stat-big" style="color:#f87171;">$3200亿</div>
+          <div class="stat-label">全球AI投资（2025）</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="stat-big" style="color:#f87171;">2.5×</div>
+          <div class="stat-label">Late Adopter成本差距</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="stat-big" style="color:#60a5fa;">40-60%</div>
+          <div class="stat-label">AI-First效率提升</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="stat-big" style="color:#60a5fa;">12-18%</div>
+          <div class="stat-label">Late Adopter提升</div>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500">到2027年，差距将持续扩大</p>
+    </div>
+  </div>
+
+  <!-- Slide 4: Siemens Energy -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-2"></div>
+    <div class="slide-content">
+      <span class="tag tag-blue">案例一 · 制造业</span>
+      <h2 class="text-3xl font-black leading-tight mb-1 mt-3">Siemens Energy</h2>
+      <p class="text-xs text-gray-500 mb-4">燃气轮机AI视觉检测</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:1rem;">
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">↓85%</div>
+          <div class="card-sub">检测工时</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">↓70%</div>
+          <div class="card-sub">非计划停机</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">99.6%</div>
+          <div class="card-sub">缺陷检出率</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">$2.3亿</div>
+          <div class="card-sub">年度节省</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0.75rem;">
+        <div class="card-title" style="color:#a78bfa;">关键教训</div>
+        <div class="card-sub">数字孪生 + 边缘AI → 训练速度翻倍<br>数据质量是地基，花了18个月清洗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Mastercard -->
+  <div class="slide">
+    <div class="light-spot light-spot-2"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-green">案例二 · 金融服务</span>
+      <h2 class="text-3xl font-black leading-tight mb-1 mt-3">Mastercard</h2>
+      <p class="text-xs text-gray-500 mb-4">实时AI反欺诈引擎 DDI 2.0</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:1rem;">
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">1:17</div>
+          <div class="card-sub">投资回报率</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">↓28%</div>
+          <div class="card-sub">欺诈损失</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">50ms</div>
+          <div class="card-sub">实时决策延迟</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">↓80%</div>
+          <div class="card-sub">误报率</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0.75rem;">
+        <div class="card-title" style="color:#a78bfa;">关键教训</div>
+        <div class="card-sub">迁移学习：新市场48小时部署<br>人+AI组合比纯AI准确率高22%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: NVIDIA-Marvell -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-cyan">案例三 · 电信</span>
+      <h2 class="text-3xl font-black leading-tight mb-1 mt-3">NVIDIA × Marvell</h2>
+      <p class="text-xs text-gray-500 mb-4">AI-RAN 联盟（2026年3月）</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:1rem;">
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">1 PetaOPs</div>
+          <div class="card-sub">每基站AI推理</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">↓90%+</div>
+          <div class="card-sub">网络切片部署</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">4×</div>
+          <div class="card-sub">能效提升</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1rem;">
+          <div class="card-metric" style="color:#34d399;">$20亿</div>
+          <div class="card-sub">NVIDIA战略投资</div>
+        </div>
+      </div>
+      <div class="card" style="padding:0.75rem;">
+        <div class="card-title" style="color:#a78bfa;">关键教训</div>
+        <div class="card-sub">将网络基础设施本身转化为AI工厂<br>5G是试验场，6G是最终目标</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Three Laws -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-2"></div>
+    <div class="slide-content">
+      <span class="tag tag-purple">跨行业规律</span>
+      <h2 class="text-2xl font-black leading-tight mb-5 mt-3">三大成功规律</h2>
+      <div class="card">
+        <div class="card-title" style="color:#60a5fa;">① 边缘优先架构</div>
+        <div class="card-sub mb-2">数据在哪里，推理就在哪里</div>
+        <div class="comparison-row"><span class="comparison-label">延迟改善</span><span class="comparison-val highlight">6-10× vs 云依赖</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:#34d399;">② 人机协同设计</div>
+        <div class="card-sub mb-2">AI增强专家，而非替代专家</div>
+        <div class="comparison-row"><span class="comparison-label">人+AI准确率</span><span class="comparison-val highlight">98.7% vs 纯AI 91%</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:#a78bfa;">③ 平台思维</div>
+        <div class="card-sub mb-2">复用而非重建</div>
+        <div class="comparison-row"><span class="comparison-label">新用例成本</span><span class="comparison-val highlight">降低40%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Five Dimensions -->
+  <div class="slide">
+    <div class="light-spot light-spot-2"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-blue">战略框架</span>
+      <h2 class="text-2xl font-black leading-tight mb-4 mt-3">AI-First 五维建议</h2>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <div class="comparison-row">
+          <span class="comparison-label">文化变革</span>
+          <span class="comparison-val">重新定义"AI增强"</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">预算分配</span>
+          <span class="comparison-val highlight">60/20/15/5 原则</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">基础设施</span>
+          <span class="comparison-val">混合算力 + MLOps</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">数据成熟度</span>
+          <span class="comparison-val">四阶段评估</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">风险缓解</span>
+          <span class="comparison-val">技术/合规/业务三层</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="text-xs text-gray-500">聚焦"高价值、低风险"首批用例的ROI是不加筛选的 <span class="text-white font-bold">17倍</span></p>
+    </div>
+  </div>
+
+  <!-- Slide 9: 18-Month Roadmap -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-cyan">转型路线图</span>
+      <h2 class="text-2xl font-black leading-tight mb-4 mt-3">18个月行动路线</h2>
+      <div class="timeline-item">
+        <span class="timeline-q">Q2 2026</span>
+        <span class="timeline-text">评估与承诺：数据成熟度评估 + AI伦理宪章 + 首批用例选定</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-q">Q3 2026</span>
+        <span class="timeline-text">验证：MLOps平台上线 + 第一试点正式启用</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-q">Q4 2026</span>
+        <span class="timeline-text">扩展：3-5个用例领域 + 首份正式ROI报告</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-q">Q1 2027</span>
+        <span class="timeline-text">加速：混合基础设施完成 + 第二波试点启动</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-q">Q2 2027</span>
+        <span class="timeline-text">转型：全组织AI采用率 > <span class="text-white font-bold">80%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: 3-Year ROI -->
+  <div class="slide">
+    <div class="light-spot light-spot-2"></div>
+    <div class="light-spot light-spot-1"></div>
+    <div class="slide-content">
+      <span class="tag tag-green">价值预测</span>
+      <h2 class="text-2xl font-black leading-tight mb-4 mt-3">三年价值创造路径</h2>
+      <div class="card" style="margin-bottom:0.75rem;">
+        <div class="card-title">效率提升</div>
+        <div style="display:flex; justify-content:space-between; margin-top:0.5rem;">
+          <div style="text-align:center;"><div style="font-size:1.4rem;font-weight:900;">15-20%</div><div class="card-sub">第1年</div></div>
+          <div style="text-align:center;"><div style="font-size:1.4rem;font-weight:900;">35-45%</div><div class="card-sub">第2年</div></div>
+          <div style="text-align:center;"><div style="font-size:1.4rem;font-weight:900;color:#34d399;">50-60%</div><div class="card-sub">第3年</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">累计净价值回报</div>
+        <div style="display:flex; justify-content:space-between; margin-top:0.5rem;">
+          <div style="text-align:center;"><div style="font-size:1.2rem;font-weight:700;">盈亏平衡</div><div class="card-sub">第1年</div></div>
+          <div style="text-align:center;"><div style="font-size:1.2rem;font-weight:700;">3-4×</div><div class="card-sub">第2年</div></div>
+          <div style="text-align:center;"><div style="font-size:1.4rem;font-weight:900;color:#34d399;">12-17×</div><div class="card-sub">第3年</div></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="text-xs text-gray-500">首次可见价值：6-9个月 | 全组织受益：18-24个月</p>
+    </div>
+  </div>
+
+  <!-- Slide 11: Call to Action -->
+  <div class="slide">
+    <div class="light-spot light-spot-1"></div>
+    <div class="light-spot light-spot-2"></div>
+    <div class="light-spot light-spot-3"></div>
+    <div class="slide-content">
+      <span class="tag tag-red">立即行动</span>
+      <h2 class="text-3xl font-black leading-tight mb-6 mt-3">未来30天</h2>
+      <div class="action-item">
+        <div class="action-num">01</div>
+        <div class="action-text">安排AI readiness评估工作坊<br><span class="text-gray-500 text-xs">第1-2周</span></div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">02</div>
+        <div class="action-text">确定3个候选试点领域<br><span class="text-gray-500 text-xs">第2-3周</span></div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">03</div>
+        <div class="action-text">锁定执行发起人和预算审批<br><span class="text-gray-500 text-xs">第3-4周</span></div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">04</div>
+        <div class="action-text">成立AI转型指导委员会<br><span class="text-gray-500 text-xs">第4周</span></div>
+      </div>
+      <div class="divider"></div>
+      <p class="text-xs text-gray-500">执行发起人是谁？初始预算多少？哪个业务单元先试？</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="page-number" id="pageNumber">1 / 11</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progressBar = document.getElementById('progressBar');
+  const pageNumber = document.getElementById('pageNumber');
+  let currentSlide = 0;
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.className = `progress-dot ${index === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToSlide(index));
+    progressBar.appendChild(dot);
+  });
+
+  function updateSlides() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active', 'prev');
+      if (index === currentSlide) slide.classList.add('active');
+      else if (index < currentSlide) slide.classList.add('prev');
+    });
+    document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+    pageNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function nextSlide() { if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); } }
+  function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlides(); } }
+  function goToSlide(index) { currentSlide = index; updateSlides(); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    else if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
+  });
+</script>
+</body>
+</html>
