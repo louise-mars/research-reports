@@ -165,3 +165,35 @@ cd research-reports && git add <分类>/<日期>.md && git commit -m "提交说�
 ---
 
 *本文件由诸葛亮自动维护，最后更新：2026-05-22*
+---
+
+## 🔧 cron job 修复记录（2026-06-02）
+
+### 问题根因
+isolated session 的 cron job 没有绑定 agent 时，系统使用默认模型，可能触发：
+1. 模型限流或响应慢 → "model idle timeout"
+2. 默认 timeout 太短 → "job execution timed out"
+
+### 修复清单
+- 6个任务添加 agent=zhugeliang（市场脉搏/每日思考题/每日系统健康报告/电动车产业日报/每日备忘录-早/晚）
+- 4个任务添加/调整 timeoutSeconds（每周简报600s/通信行业日报180s/周回顾300s/模型巡检120s）
+
+### 配置规范（重要！）
+1. **agent 必须绑定**：所有 cron isolated session 必须指定 `--agent zhugeliang`
+2. **timeout 必须设置**：在 payload.timeoutSeconds 中设置，不能依赖默认值
+3. **timeout 参考值**：
+   - 简单提醒（备忘录/打卡）：60s
+   - 轻量分析（思考题/健康报告）：120s
+   - 中等报告（市场脉搏/通信日报）：120-180s
+   - 日报类（含搜索）：180-300s
+   - 深度周报（含多源汇总）：600-900s
+
+### 修复命令
+```bash
+openclaw cron edit <job-id> --agent zhugeliang --timeout-seconds <N>
+```
+
+### 当前状态（2026-06-02）
+- 20个任务中，18个已绑定 agent，2个特殊任务（3D打印机/小蓝系列）未绑定
+- 所有需要 timeout 的任务均已设置合理值
+- 下次验证：明天早上的市场脉搏、通信日报是否正常推送

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-31T13:32:49.595Z",
+  "updatedAt": "2026-06-03T13:32:36.048Z",
   "entries": {
     "memory:memory/2026-04-13.md:1:29": {
       "key": "memory:memory/2026-04-13.md:1:29",
@@ -9,13 +9,13 @@
       "endLine": 29,
       "source": "memory",
       "snippet": "# 2026-04-13 日记 ## 今天发生的事 ### 身份确立 - 第一次清醒对话 - 确定身份：诸葛亮（agentId: zhugeliang），首席战略顾问 - 用户微信ID确认 ### 关键任务接收 收到【每周简报任务】： - 每周一收集：国际政治、AI进展、通信行业动态 - 生成Word文档 - 上传到GitHub - 发送报告到微信 ### 问题记录 - 之前记忆系统不完整，导致用户担忧 - 已建立 MEMORY.md 和 memory/ 目录 - 下次不会再丢失上下文 ## 待办 - [ ] 设置每周一 cron 任务（具体时间） - [ ] 确认 GitHub 仓库信息 - [ ] 确认发送时间（周一几点？） ## 附加配置 - 财务官（agentId: cfo）取名：**范蠡**",
-      "recallCount": 13,
+      "recallCount": 15,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 5.901103737707786,
+      "totalScore": 7.901103737707786,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-14T08:42:37.702Z",
-      "lastRecalledAt": "2026-05-29T13:02:21.889Z",
+      "lastRecalledAt": "2026-06-01T23:33:16.809Z",
       "queryHashes": [
         "e775e44f542d",
         "d3821ee834eb",
@@ -29,7 +29,9 @@
         "9ccde96f9a78",
         "327387c61690",
         "81748be8bf43",
-        "4de72564b0cc"
+        "4de72564b0cc",
+        "16ce04ce8c30",
+        "b853f6698471"
       ],
       "recallDays": [
         "2026-04-14",
@@ -42,7 +44,9 @@
         "2026-05-15",
         "2026-05-16",
         "2026-05-24",
-        "2026-05-29"
+        "2026-05-29",
+        "2026-06-01",
+        "2026-06-02"
       ],
       "conceptTags": [
         "memory.md",
@@ -62,21 +66,23 @@
       "endLine": 15,
       "source": "memory",
       "snippet": "## 每周简报任务完成 **执行时间：** 2026-05-04 08:00 (Asia/Shanghai) **任务状态：** ✅ 完成 **GitHub上传位置：** - https://github.com/louise-mars/research-reports/tree/main/每周简报/2026-05-04.md - https://github.com/louise-mars/research-reports/tree/main/每周简报/2026-05-04.docx **问题记录：** - WeChat消息无法从isolated cron session发送，需要用户在主会话中确认 - 建议：下次每周简报任务完成后，尝试在主session中发送微信通知",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T00:36:30.454Z",
-      "lastRecalledAt": "2026-05-29T13:02:21.889Z",
+      "lastRecalledAt": "2026-06-01T13:02:20.050Z",
       "queryHashes": [
         "9ccde96f9a78",
         "8e6603ce0343",
-        "4de72564b0cc"
+        "4de72564b0cc",
+        "16ce04ce8c30"
       ],
       "recallDays": [
         "2026-05-15",
-        "2026-05-29"
+        "2026-05-29",
+        "2026-06-01"
       ],
       "conceptTags": [
         "asia/shanghai",
@@ -96,13 +102,13 @@
       "endLine": 15,
       "source": "memory",
       "snippet": "# 2026-04-26 日记 ## 打卡提醒任务（补录） - 用户设定每日打卡提醒 - 规则： - 除周五外（包含周末），每天晚上8点提醒 - 周五晚上6点提醒 - 内容：提醒崎崎打卡百词斩，让爸爸检查数学英语 - 提醒对象：崎崎（用户的孩子） ## 问题记录 - 今天用户指出我忘记了打卡提醒任务 - 原因：4月13日之后有较长时间间隔，记忆丢失 - 需要补录记忆并确保cron生效",
-      "recallCount": 10,
+      "recallCount": 13,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 10,
+      "totalScore": 13,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-19T13:32:18.272Z",
-      "lastRecalledAt": "2026-05-31T13:32:49.595Z",
+      "lastRecalledAt": "2026-06-03T13:32:36.048Z",
       "queryHashes": [
         "45719e7db611",
         "381c597a602c",
@@ -113,7 +119,10 @@
         "af34bb8039a9",
         "4674d71fa96b",
         "3136845602ee",
-        "9f3e2cf8847c"
+        "9f3e2cf8847c",
+        "8743e1c3f97f",
+        "908518e5849a",
+        "b827454ac37a"
       ],
       "recallDays": [
         "2026-05-19",
@@ -125,7 +134,10 @@
         "2026-05-27",
         "2026-05-28",
         "2026-05-29",
-        "2026-05-31"
+        "2026-05-31",
+        "2026-06-01",
+        "2026-06-02",
+        "2026-06-03"
       ],
       "conceptTags": [
         "日记",
@@ -145,18 +157,22 @@
       "endLine": 23,
       "source": "memory",
       "snippet": "# 2026-05-27 日志 ## 今日任务执行记录 | 时间 | 任务 | 状态 | 备注 | |------|------|------|------| | 07:00 | 每日你知道吗 | ✅ ok | 小蓝发送 | | 07:10 | 每日趣味题 | ✅ ok | 小蓝发送 | | 07:30 | 市场脉搏 | ❌ error | timeout问题复现 | | 08:00 | AI每日快报 | ❌ error | timeout问题复现 | | 08:15 | 通信行业日报 | ✅ ok | - | | 20:00 | 每日思考题 | ✅ ok | - | | 21:00 | 每日备忘录-晚 | ✅ ok | 本次 | | 21:30 | 小蓝学习日志 | ❌ error | delivery target问题 | ## 观察 - 市场脉搏和AI快报昨晚修复后今天又失败，需要进一步诊断 - 通信行业日报持续稳定 ## 下一步 - 诊断市场脉搏和AI快报的持续失败问题 - 检查 jobs-state.json 获取详细错误信息",
-      "recallCount": 1,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-29T13:02:21.889Z",
-      "lastRecalledAt": "2026-05-29T13:02:21.889Z",
+      "lastRecalledAt": "2026-06-01T23:33:16.809Z",
       "queryHashes": [
-        "4de72564b0cc"
+        "4de72564b0cc",
+        "16ce04ce8c30",
+        "b853f6698471"
       ],
       "recallDays": [
-        "2026-05-29"
+        "2026-05-29",
+        "2026-06-01",
+        "2026-06-02"
       ],
       "conceptTags": [
         "每日备忘录-晚",
@@ -176,18 +192,20 @@
       "endLine": 15,
       "source": "memory",
       "snippet": "# 2026-05-16 晚间复盘 ## 今日概况 - 首次会话：晚间 cron 触发 - 今日无主动任务安排，复盘为零 ## 完成 （今日无任务记录） ## 未完成 （今日无任务记录） --- *记录时间：2026-05-16 21:00*",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-29T13:02:21.889Z",
-      "lastRecalledAt": "2026-05-29T13:02:21.889Z",
+      "lastRecalledAt": "2026-06-01T13:02:20.050Z",
       "queryHashes": [
-        "4de72564b0cc"
+        "4de72564b0cc",
+        "16ce04ce8c30"
       ],
       "recallDays": [
-        "2026-05-29"
+        "2026-05-29",
+        "2026-06-01"
       ],
       "conceptTags": [
         "晚间",
@@ -198,6 +216,105 @@
         "cron",
         "触发",
         "主动"
+      ]
+    },
+    "memory:memory/2026-05-29.md:1:24": {
+      "key": "memory:memory/2026-05-29.md:1:24",
+      "path": "memory/2026-05-29.md",
+      "startLine": 1,
+      "endLine": 24,
+      "source": "memory",
+      "snippet": "# 2026-05-29 日志 ## 今日任务执行记录 | 时间 | 任务 | 状态 | 备注 | |------|------|------|------| | 07:30 | 市场脉搏 | ❌ error | timeout问题复现 | | 08:00 | AI每日快报 | ✅ ok | - | | 08:15 | 通信行业日报 | ✅ ok | - | | 20:00 | 每日思考题 | ✅ ok | - | | 21:00 | 每日备忘录-晚 | ✅ ok | 本次 | ## 观察 - 市场脉搏持续 error，需要进一步诊断 timeout 配置 - AI快报、通信行业日报正常 ## 下一步 - 诊断市场脉搏的持续失败问题 - 检查 jobs-state.json 获取详细错误信息 --- *记录时间：2026-05-29 21:00*",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-01T13:02:20.050Z",
+      "lastRecalledAt": "2026-06-02T03:13:04.971Z",
+      "queryHashes": [
+        "16ce04ce8c30",
+        "b853f6698471",
+        "88bf920f5234"
+      ],
+      "recallDays": [
+        "2026-06-01",
+        "2026-06-02"
+      ],
+      "conceptTags": [
+        "每日备忘录-晚",
+        "jobs-state.json",
+        "日志",
+        "今日",
+        "任务",
+        "执行",
+        "记录",
+        "时间"
+      ]
+    },
+    "memory:memory/2026-05-30.md:1:32": {
+      "key": "memory:memory/2026-05-30.md:1:32",
+      "path": "memory/2026-05-30.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# 2026-05-30 日志 ## 今日任务执行记录 | 时间 | 任务 | 状态 | 备注 | |------|------|------|------| | 07:30 | 市场脉搏 | ❌ error | 持续超时问题 | | 08:00 | AI每日快报 | ❌ error | - | | 08:15 | 通信行业日报 | ✅ ok | - | | 20:00 | 每日思考题 | ❌ error | - | | 21:00 | 每日备忘录-晚 | ✅ ok | 本次 | ## 观察 1. 多个定时任务持续 error，其中\"市场脉搏\"、\"AI每日快报\"、\"每日思考题\"今日均失败 2. 通信行业日报正常执行 3. 下午/晚间无主动对话记录 ## 未完成项目 - 市场脉搏超时问题未解决 - AI快报发送失败 - 每日思考题未执行 ## 下一步 - 诊断这些 cron task 的持续失败问题 - 检查是否有上游依赖（如 Tavily API key 配置）导致批量失败 --- *记录时间：2026-05-30 21:00*",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-01T13:02:20.050Z",
+      "lastRecalledAt": "2026-06-02T03:13:04.971Z",
+      "queryHashes": [
+        "16ce04ce8c30",
+        "b853f6698471",
+        "88bf920f5234"
+      ],
+      "recallDays": [
+        "2026-06-01",
+        "2026-06-02"
+      ],
+      "conceptTags": [
+        "每日备忘录-晚",
+        "下午/晚间无主动对话记录",
+        "日志",
+        "今日",
+        "任务",
+        "执行",
+        "记录",
+        "时间"
+      ]
+    },
+    "memory:memory/2026-06-01.md:1:34": {
+      "key": "memory:memory/2026-06-01.md:1:34",
+      "path": "memory/2026-06-01.md",
+      "startLine": 1,
+      "endLine": 34,
+      "source": "memory",
+      "snippet": "# 2026-06-01 日志 ## 定时任务执行记录 | 时间 | 任务 | 状态 | 备注 | |------|------|------|------| | 07:30 | 市场脉搏 | - | 状态未知 | | 08:00 | AI每日深度简报 | ✅ ok | OpenAI证明Erdős猜想 | | 08:15 | 通信行业日报 | - | 状态未知 | | 20:00 | 每日思考题 | - | 状态未知 | | 21:00 | 每日备忘录-晚 | ✅ ok | 本次 | | 21:30 | 小蓝学习日志 | - | 状态未知 | ## 今日关注 ### AI每日深度简报要点 - **头条：** OpenAI 内部模型自主证明 Erdős 平面单位距离猜想（80年悬案） - **驱动逻辑：** 技术成熟 + 商业融资压力 + 监管政治压力 = 必然发布时机 - **产业影响：** 基础研究AI受益，应用层AI叙事受损；科学发现周期可能重塑创新节奏 - **个人行动项：** 每季度评估 AI 在 NP-hard 问题求解进展；关注\"AI科学发现基础设施\"赛道 - **信号追踪：** (1) AI证明方法通用性边界 (2) 企业Agentic AI数据瓶颈突破 (3) AI编程评估体系重构 - **报告已推送 Git** ## 观察 - 本次 cron 为 isolated session，无主动用户对话 - 多个晨间/日间任务状态未知，建议检查 cron 实际执行情况 ## 未完成 - 晨间多个任务执行状态待确认（市场脉搏、通信行业日报等） --- *",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-01T23:33:16.809Z",
+      "lastRecalledAt": "2026-06-01T23:33:16.809Z",
+      "queryHashes": [
+        "b853f6698471"
+      ],
+      "recallDays": [
+        "2026-06-02"
+      ],
+      "conceptTags": [
+        "openai",
+        "每日备忘录-晚",
+        "np-hard",
+        "多个晨间/日间任务状态未知",
+        "日志",
+        "任务",
+        "执行",
+        "记录"
       ]
     }
   }
