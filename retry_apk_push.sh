@@ -2,7 +2,7 @@
 # Retry APK upload to GitHub Release at 5 AM
 # Tries git push first, then release asset upload
 
-TOKEN="<redacted-token>"
+TOKEN="${GITHUB_TOKEN:-<configured-in-env>}"
 REPO="louise-mars/kiro"
 APK="/tmp/kiro/app/build/outputs/apk/debug/app-debug.apk"
 

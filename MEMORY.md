@@ -43,7 +43,7 @@
 **GitHub配置：**
 - 用户名：louise-mars
 - 仓库名：research-reports
-- Token：<redacted-token>
+- Token：<已脱敏，使用全局 git config 中的凭证>
 - Remote：https://github.com/louise-mars/research-reports.git
 - 上传路径格式：research-reports/[分类]/[日期].md
 
